@@ -11,4 +11,15 @@
       header("Location: ../Vistas/Agregar_Usuario.php");
       exit;
   }
+
+if(isset($_POST['RegistIng'])){
+        $Ingre = $_REQUEST['ingrediente'];
+        $datos = "null,'".$Ingre."'";
+        $res = json_decode(Alta('ingrediente',$datos),true);
+        if ($res['status'] == 'success') {
+            echo '<script>alert("Alta Realizada correctamente");
+            window.location.href = "../Vistas/ConsultaIngredientes.php";
+            </script>';
+        }
+    }
 ?>
